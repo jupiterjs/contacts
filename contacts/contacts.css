@@ -1,2 +1,14 @@
 body {font-family: verdana}
 td {padding: 3px;}
+
+.lists > div {
+	float:left;
+}
+
+.lists ul li {
+	list-style-type:none;
+}
+
+.lists ul {
+	padding-left:0px;
+}
