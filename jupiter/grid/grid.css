@@ -1,0 +1,11 @@
+.mxui_data_order th {
+	background: url(/nb/ui/images/arrow_right_sm.png) no-repeat center right;
+}
+
+.mxui_data_order th.asc {
+	background: url(/nb/ui/images/arrow_up.png) no-repeat center right;
+}
+
+.mxui_data_order th.desc {
+	background: url(/nb/ui/images/arrow_down.png) no-repeat center right;
+}
