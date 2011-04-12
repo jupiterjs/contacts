@@ -1,4 +1,6 @@
-steal.css("../../mxui/data/grid/grid", "grid").plugins('mxui/data/grid').then(function($){
+steal.css("../../mxui/data/grid/grid", "grid")
+	.plugins('mxui/data/grid', 'jupiter/create')
+	.then(function($){
 
 /**
  * @class Clui.Grid
@@ -8,7 +10,9 @@ $.Controller('Jupiter.Grid',
 {
 	defaults : {
 		model: null,
-		params: null
+		params: null,
+		// path to EJS of create form
+		create: null
 	}
 },
 /* @Prototype */
@@ -18,6 +22,11 @@ $.Controller('Jupiter.Grid',
 		var gridOptions = {};
 		$.extend(gridOptions, this.options, {newPageClears: false});
 		this.find(".cluigrid").mxui_data_grid(gridOptions);
+		this.find(".create").jupiter_create({
+			model: this.options.model,
+			insertInto: this.find("tbody"),
+			form: this.options.create
+		})
 		this.bind(this.find(".scrollBody")[0], "scroll", "gridscroll")
 	},
 	"{params} updated.attr" : function(params, ev, attr, val){

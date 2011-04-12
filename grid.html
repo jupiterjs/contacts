@@ -30,6 +30,12 @@
 	<div id='grid'></div>
 	
 	
+	<script type='text/ejs' id='formEJS'>
+		<tr><td colspan=4><form>
+			Title: <input type='text' name='assetTitle' />
+			Type: <input type='text' name='type' />
+		</form></td></tr>
+	</script>
 	<script type='text/ejs' id='rowEjs'>
 		<td><%= id %></td>
 		<td><%= assetTitle %></td>
@@ -65,7 +71,8 @@
 					assetCollectionTitle: "Collection",
 					type: "Media Type"
 				},
-				row : "rowEjs"
+				row : "rowEjs",
+				create: "formEJS"
 			})
 		}).start();
 	</script>
