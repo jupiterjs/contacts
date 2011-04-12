@@ -30,7 +30,10 @@ steal.plugins(
 			model : Contacts.Models.Contact,
 			params : new Mxui.Data(),
 			columns: {
-				first: "first"
+				last: "Name",
+				category: "Category",
+				company: "Company",
+				location: "Location"
 			},
 			row : "//contacts/views/contactRow",
 			create: "//contacts/views/contactCreate"
