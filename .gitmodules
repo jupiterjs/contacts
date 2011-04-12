@@ -10,3 +10,6 @@
 [submodule "steal"]
 	path = steal
 	url = git@github.com:jupiterjs/steal.git
+[submodule "mxui"]
+	path = mxui
+	url = git@github.com:jupiterjs/mxui.git
