@@ -35,7 +35,7 @@ steal.plugins(
 		
 		$("#company").jupiter_list({
 			model : Contacts.Models.Company,
-			show : "//contacts/views/categoryList",
+			show : "//contacts/views/companyList",
 			title: 'Company',
 			create: "//contacts/views/companyCreate"
 		})
