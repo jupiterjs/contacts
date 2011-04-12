@@ -25,4 +25,14 @@ steal.plugins(
 			title: 'Company',
 			create: "//contacts/views/companyCreate"
 		})
+		
+		$("#contacts").jupiter_grid({
+			model : Contacts.Models.Contact,
+			params : new Mxui.Data(),
+			columns: {
+				first: "first"
+			},
+			row : "//contacts/views/contactRow",
+			create: "//contacts/views/contactCreate"
+		})
 	})
