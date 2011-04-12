@@ -20,6 +20,11 @@ $.Controller('Jupiter.Grid',
 		this.find(".cluigrid").mxui_data_grid(gridOptions);
 		this.bind(this.find(".scrollBody")[0], "scroll", "gridscroll")
 	},
+	"{params} updated.attr" : function(params, ev, attr, val){
+		if(attr == "count") {
+			this.find(".count").html(val)
+		}
+	},
 	gridscroll: function(el, ev){
 		if (el[0].scrollHeight - el.scrollTop() == el.outerHeight()) { // we're at the bottom
 			this.options.params.attr("offset", this.options.params.offset + 50)
