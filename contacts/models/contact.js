@@ -31,6 +31,18 @@ steal.plugins("jquery/model", "jquery/model/list/local")
 				companyId: (i%5)+1,
 				locationId: (i%10)+1
 			}
+		},
+		function(item, settings){
+			if(settings.data.categoryId){
+				return item.categoryId == settings.data.categoryId;
+			}
+			if(settings.data.locationId){
+				return item.locationId == settings.data.locationId;
+			}
+			if(settings.data.companyId){
+				return item.companyId == settings.data.companyId;
+			}
+			return true;
 		})
 	})
 
