@@ -22,7 +22,12 @@
 	<body>
         <ul id='list'></ul>
         <div id='out'></div>
-		
+		<script type='text/ejs' id='formEJS'>
+			<form>
+				Name: <input type='text' name='name' />
+				Status: <input type='text' name='status' />
+			</form>
+		</script>
 		<script type='text/ejs' id='itemEJS'>
 			<span><%=this.name%></span>
 			<span><%=this.status%></span>
@@ -50,7 +55,8 @@
 				$("#list").jupiter_list({
 					model : File,
 					show : "itemEJS",
-					title: 'Files'
+					title: 'Files',
+					create: "formEJS"
 				})
 				$('#list').bind('activate', function(ev, item){
 					$("#out").html(item.name)

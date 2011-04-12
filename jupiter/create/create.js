@@ -10,7 +10,7 @@ $.Controller('Jupiter.Create',
 {
 	defaults : {
 		model : null,
-		appendedEl : null,
+		insertInto : null,
 		form: null
 	}
 },
@@ -21,15 +21,15 @@ $.Controller('Jupiter.Create',
 		this.forms = $([]);
 	},
 	'.createbutton click': function(){
-		var form = $($.View(this.options.form, {})).appendTo(this.options.appendedEl);
+		var form = $($.View(this.options.form, {})).prependTo(this.options.insertInto);
 		this.forms = this.forms.add(form);
 	},
-	"{appendedEl} keyup": function(el, ev){
+	"{insertInto} keyup": function(el, ev){
 		if(ev.keyCode == 13 || ev.charCode == 13){ // user hit enter
-			this.options.appendedEl.find("form").submit();
+			this.options.insertInto.find("form").submit();
 		}
 	},
-	"{appendedEl} form submit": function(el, ev){
+	"{insertInto} form submit": function(el, ev){
 		ev.preventDefault()
 		var params = el.formParams();
 		var item = new this.options.model(params);
