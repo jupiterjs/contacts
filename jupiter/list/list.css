@@ -6,3 +6,8 @@
 	width:200px;
 	margin-right:100px;
 }
+
+.jupiter_list .activated {
+	background-color:green;
+	border:none;
+}

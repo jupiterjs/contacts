@@ -16,6 +16,9 @@ steal.plugins(
 		.bind("activate", function(ev, item){
 			params.attr("categoryId", item.id)
 		})
+		.bind("deactivate", function(ev, item){
+			params.attr("categoryId", null)
+		})
 		
 		$("#location").jupiter_list({
 			model : Contacts.Models.Location,
@@ -26,6 +29,9 @@ steal.plugins(
 		.bind("activate", function(ev, item){
 			params.attr("locationId", item.id)
 		})
+		.bind("deactivate", function(ev, item){
+			params.attr("locationId", null)
+		})
 		
 		$("#company").jupiter_list({
 			model : Contacts.Models.Company,
@@ -35,6 +41,9 @@ steal.plugins(
 		})
 		.bind("activate", function(ev, item){
 			params.attr("companyId", item.id)
+		})
+		.bind("deactivate", function(ev, item){
+			params.attr("companyId", null)
 		})
 		
 		$("#contacts").jupiter_grid({
