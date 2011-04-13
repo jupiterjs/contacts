@@ -1,5 +1,5 @@
 steal.css("../../mxui/data/grid/grid", "grid")
-	.plugins('mxui/data/grid', 'jupiter/create')
+	.plugins('mxui/data/grid', 'jupiter/create', 'jupiter/style')
 	.then(function($){
 
 /**
@@ -22,6 +22,7 @@ $.Controller('Jupiter.Grid',
 		var gridOptions = {};
 		$.extend(gridOptions, this.options, {newPageClears: false});
 		this.find(".cluigrid").mxui_data_grid(gridOptions);
+		this.find("h3").style$().header()
 		this.find(".create").jupiter_create({
 			model: this.options.model,
 			insertInto: this.find("tbody"),

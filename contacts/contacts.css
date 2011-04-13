@@ -23,3 +23,11 @@ td {padding: 3px;}
 .wrapper{
 	height:300px;
 }
+
+h3{
+	text-align:center;
+}
+
+#contacts{
+	clear:both;
+}
