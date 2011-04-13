@@ -23,6 +23,7 @@ $.Controller('Jupiter.List',
 		var list_wrapper = this.find(".list_wrapper");
 		list_wrapper.mxui_data_list(this.options)
 		this.find("h3").style$().header()
+		this.element.style$().box()
 		this.find(".create").jupiter_create({
 			model: this.options.model,
 			form: this.options.create,
