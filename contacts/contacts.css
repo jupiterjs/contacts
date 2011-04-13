@@ -40,3 +40,10 @@ h3{
     right: 8px;
 	width:100%:
 }
+
+.container form {
+	background-color:#eeeeee;
+}
+.container input {
+	width:100px;
+}

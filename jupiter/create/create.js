@@ -23,6 +23,7 @@ $.Controller('Jupiter.Create',
 	'.createbutton click': function(){
 		var form = $($.View(this.options.form, {})).prependTo(this.options.insertInto);
 		this.forms = this.forms.add(form);
+		this.element.hide();
 	},
 	"{insertInto} keyup": function(el, ev){
 		if(ev.keyCode == 13 || ev.charCode == 13){ // user hit enter
@@ -36,6 +37,7 @@ $.Controller('Jupiter.Create',
 		item.save();
 		this.forms.remove();
 		this.forms = $([]);
+		this.element.show();
 	}
 })
 
