@@ -24,7 +24,7 @@ steal.plugins(
 			model : Contacts.Models.Location,
 			show : "//contacts/views/categoryList",
 			title: 'Location',
-			create: "//contacts/views/locationCreate"
+			create: "//contacts/views/categoryCreate"
 		})
 		.bind("activate", function(ev, item){
 			params.attr("locationId", item.id)
