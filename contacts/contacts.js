@@ -6,81 +6,83 @@ steal.plugins(
 	.css('contacts')
 	.models('location', 'contact', 'company', 'category')
 	.then(function(){
+		$.Controller("Contacts.Controller", {
+			init: function(){
+				this.params = new Mxui.Data();
+				$("#category .list_wrapper").mxui_data_list({
+					model : Contacts.Models.Category,
+					show : "//contacts/views/categoryList",
+					create: "//contacts/views/categoryCreate"
+				})
+				
+				$("#location .list_wrapper").mxui_data_list({
+					model : Contacts.Models.Location,
+					show : "//contacts/views/categoryList",
+					create: "//contacts/views/categoryCreate"
+				})
 		
-		var params = new Mxui.Data();
+				$("#company .list_wrapper").mxui_data_list({
+					model : Contacts.Models.Company,
+					show : "//contacts/views/companyList",
+					create: "//contacts/views/companyCreate"
+				})
+				
+				$("#category .create").jupiter_create({
+					model: Contacts.Models.Category,
+					form: "//contacts/views/categoryCreate",
+					insertInto: $("#category .list_wrapper")
+				})
+				
+				$("#company .create").jupiter_create({
+					model: Contacts.Models.Company,
+					form: "//contacts/views/companyCreate",
+					insertInto: $("#company .list_wrapper")
+				})
+				
+				$("#location .create").jupiter_create({
+					model: Contacts.Models.Category,
+					form: "//contacts/views/categoryCreate",
+					insertInto: $("#location .list_wrapper")
+				})
 		
-		$("#category .list_wrapper").mxui_data_list({
-			model : Contacts.Models.Category,
-			show : "//contacts/views/categoryList",
-			create: "//contacts/views/categoryCreate"
-		})
-		.bind("activate", function(ev, item){
-			params.attr("categoryId", item.id)
-		})
-		.bind("deactivate", function(ev, item){
-			params.attr("categoryId", null)
-		})
-		
-		$("#location .list_wrapper").mxui_data_list({
-			model : Contacts.Models.Location,
-			show : "//contacts/views/categoryList",
-			create: "//contacts/views/categoryCreate"
-		})
-		.bind("activate", function(ev, item){
-			params.attr("locationId", item.id)
-		})
-		.bind("deactivate", function(ev, item){
-			params.attr("locationId", null)
-		})
-		
-		$("#company .list_wrapper").mxui_data_list({
-			model : Contacts.Models.Company,
-			show : "//contacts/views/companyList",
-			create: "//contacts/views/companyCreate"
-		})
-		.bind("activate", function(ev, item){
-			params.attr("companyId", item.id)
-		})
-		.bind("deactivate", function(ev, item){
-			params.attr("companyId", null)
-		})
-		
-		$("#category .create").jupiter_create({
-			model: Contacts.Models.Category,
-			form: "//contacts/views/categoryCreate",
-			insertInto: $("#category .list_wrapper")
-		})
-		
-		$("#company .create").jupiter_create({
-			model: Contacts.Models.Company,
-			form: "//contacts/views/companyCreate",
-			insertInto: $("#company .list_wrapper")
-		})
-		
-		$("#location .create").jupiter_create({
-			model: Contacts.Models.Category,
-			form: "//contacts/views/categoryCreate",
-			insertInto: $("#location .list_wrapper")
-		})
-		
-		$("#contacts").jupiter_scrollable_grid({
-			model : Contacts.Models.Contact,
-			params : params,
-			columns: {
-				last: "Name",
-				category: "Category",
-				company: "Company",
-				location: "Location"
+				$("#contacts").jupiter_scrollable_grid({
+					model : Contacts.Models.Contact,
+					params : this.params,
+					columns: {
+						last: "Name",
+						category: "Category",
+						company: "Company",
+						location: "Location"
+					},
+					row : "//contacts/views/contactRow",
+					create: "//contacts/views/contactCreate"
+				})
+				.find(".wrapper").mxui_layout_fill()
+				
+				$("h3").style$().header()
+				$(".lists > div").style$().box()
+			}, 
+			"#category .list_wrapper activate": function(el, ev, item){
+				this.params.attr("categoryId", item.id);
+			}, 
+			"#category .list_wrapper deactivate": function(el, ev, item){
+				this.params.attr("categoryId", null);
+			}, 
+			"#location .list_wrapper activate": function(el, ev, item){
+				this.params.attr("locationId", item.id);
+			}, 
+			"#location .list_wrapper deactivate": function(el, ev, item){
+				this.params.attr("locationId", null);
+			}, 
+			"#company .list_wrapper activate": function(el, ev, item){
+				this.params.attr("companyId", item.id);
+			}, 
+			"#company .list_wrapper deactivate": function(el, ev, item){
+				this.params.attr("companyId", null);
 			},
-			row : "//contacts/views/contactRow",
-			create: "//contacts/views/contactCreate"
+			"windowresize": function(el, ev){
+				$("#contacts").trigger("resize")
+			}
 		})
-		.find(".wrapper").mxui_layout_fill()
-		
-		$(window).resize(function(){
-			$("#contacts").trigger("resize")
-		})
-		
-		$("h3").style$().header()
-		$(".lists > div").style$().box()
+		$(document.body).contacts();
 	})
