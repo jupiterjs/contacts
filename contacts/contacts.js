@@ -1,16 +1,17 @@
 steal.plugins(	
-	'jupiter/grid',
+	'jupiter/scrollable_grid',
 	'jquery/dom/fixture', 
-	'jupiter/list')
-	.css('contacts')	// loads styles
+	'jupiter/style', 
+	'mxui/data/list')
+	.css('contacts')
 	.models('location', 'contact', 'company', 'category')
 	.then(function(){
+		
 		var params = new Mxui.Data();
 		
-		$("#category").jupiter_list({
+		$("#category .list_wrapper").mxui_data_list({
 			model : Contacts.Models.Category,
 			show : "//contacts/views/categoryList",
-			title: 'Category',
 			create: "//contacts/views/categoryCreate"
 		})
 		.bind("activate", function(ev, item){
@@ -20,10 +21,9 @@ steal.plugins(
 			params.attr("categoryId", null)
 		})
 		
-		$("#location").jupiter_list({
+		$("#location .list_wrapper").mxui_data_list({
 			model : Contacts.Models.Location,
 			show : "//contacts/views/categoryList",
-			title: 'Location',
 			create: "//contacts/views/categoryCreate"
 		})
 		.bind("activate", function(ev, item){
@@ -33,10 +33,9 @@ steal.plugins(
 			params.attr("locationId", null)
 		})
 		
-		$("#company").jupiter_list({
+		$("#company .list_wrapper").mxui_data_list({
 			model : Contacts.Models.Company,
 			show : "//contacts/views/companyList",
-			title: 'Company',
 			create: "//contacts/views/companyCreate"
 		})
 		.bind("activate", function(ev, item){
@@ -46,7 +45,25 @@ steal.plugins(
 			params.attr("companyId", null)
 		})
 		
-		$("#contacts").jupiter_grid({
+		$("#category .create").jupiter_create({
+			model: Contacts.Models.Category,
+			form: "//contacts/views/categoryCreate",
+			insertInto: $("#category .list_wrapper")
+		})
+		
+		$("#company .create").jupiter_create({
+			model: Contacts.Models.Company,
+			form: "//contacts/views/companyCreate",
+			insertInto: $("#company .list_wrapper")
+		})
+		
+		$("#location .create").jupiter_create({
+			model: Contacts.Models.Category,
+			form: "//contacts/views/categoryCreate",
+			insertInto: $("#location .list_wrapper")
+		})
+		
+		$("#contacts").jupiter_scrollable_grid({
 			model : Contacts.Models.Contact,
 			params : params,
 			columns: {
@@ -58,4 +75,12 @@ steal.plugins(
 			row : "//contacts/views/contactRow",
 			create: "//contacts/views/contactCreate"
 		})
+		.find(".wrapper").mxui_layout_fill()
+		
+		$(window).resize(function(){
+			$("#contacts").trigger("resize")
+		})
+		
+		$("h3").style$().header()
+		$(".lists > div").style$().box()
 	})

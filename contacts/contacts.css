@@ -6,7 +6,7 @@ td {padding: 3px;}
 	width:33%;
 }
 
-.jupiter_list .container{
+.lists > div .container{
 	overflow:auto;
 }
 
@@ -18,10 +18,6 @@ td {padding: 3px;}
 	padding-left:0px;
 	margin:0;
 	height:200px;
-}
-
-.wrapper{
-	height:300px;
 }
 
 h3{
@@ -46,4 +42,13 @@ h3{
 }
 .container input {
 	width:100px;
+}
+
+.create {
+	float:right;
+}
+
+.lists > div .activated {
+	background-color:#eeeeee;
+	border:none;
 }

@@ -5,7 +5,7 @@ steal.css("../../mxui/data/grid/grid", "grid")
 /**
  * @class Clui.Grid
  */
-$.Controller('Jupiter.Grid',
+$.Controller('Jupiter.ScrollableGrid',
 /* @Static */
 {
 	defaults : {
@@ -22,7 +22,6 @@ $.Controller('Jupiter.Grid',
 		var gridOptions = {};
 		$.extend(gridOptions, this.options, {newPageClears: false});
 		this.find(".cluigrid").mxui_data_grid(gridOptions);
-		this.find("h3").style$().header()
 		this.find(".create").jupiter_create({
 			model: this.options.model,
 			insertInto: this.find("tbody"),
