@@ -1,4 +1,7 @@
-steal.plugins('jquery/controller/view', 'jquery/view/ejs', 'jquery/dom/form_params')
+steal.plugins('jquery/controller/view', 
+	'jquery/view/ejs', 
+	'jquery/dom/form_params',
+	'mxui/util/keycode')
 	.css('create')
 	.then(function($){
 
@@ -25,8 +28,8 @@ $.Controller('Jupiter.Create',
 		this.forms = this.forms.add(form);
 		this.element.hide();
 	},
-	"{insertInto} keyup": function(el, ev){
-		if(ev.keyCode == 13 || ev.charCode == 13){ // user hit enter
+	"{insertInto} form keyup": function(el, ev){
+		if($.keycode(ev, "enter")){ // user hit enter
 			this.options.insertInto.find("form").submit();
 		}
 	},

@@ -40,7 +40,7 @@ steal.plugins(
 				})
 				
 				$("#location .create").jupiter_create({
-					model: Contacts.Models.Category,
+					model: Contacts.Models.Location,
 					form: "//contacts/views/categoryCreate",
 					insertInto: $("#location .list_wrapper")
 				})
