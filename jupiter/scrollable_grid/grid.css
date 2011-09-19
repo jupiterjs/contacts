@@ -1,3 +1,15 @@
-.createbutton{
+.jupiter_scrollable_grid h3.ui-state-active
+{
+	border:none;
+}
+.jupiter_scrollable_grid .createbutton{
 	float:right;
+}
+.jupiter_scrollable_grid .body tr:nth-child(even) td
+{ 
+	background-color:#f2f5f9; 
+}
+.jupiter_scrollable_grid .body tr:hover td
+{
+	background:#ebeaea;
 }

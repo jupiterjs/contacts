@@ -1,4 +1,4 @@
-steal.plugins("jquery/model", "jquery/model/list/local")
+steal("jquery/model", "jquery/model/list/local")
 	.then(function(){
 		$.Model('Contacts.Models.Contact', {
 			name: function(){

@@ -1,5 +1,7 @@
-steal.css("../../mxui/data/grid/grid", "grid")
-	.plugins('mxui/data/grid', 'jupiter/create', 'jupiter/style')
+steal('mxui/data/grid', 
+	  "jupiter/create", 
+	   "jupiter/style",
+	   "./grid.css")
 	.then(function($){
 
 /**
@@ -27,6 +29,7 @@ $.Controller('Jupiter.ScrollableGrid',
 			insertInto: this.find("tbody"),
 			form: this.options.create
 		})
+		this.element.addClass('ui-widget ui-widget-content ui-corner-all')
 		this.bind(this.find(".scrollBody")[0], "scroll", "gridscroll")
 	},
 	"{params} updated.attr" : function(params, ev, attr, val){
