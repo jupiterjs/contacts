@@ -1,8 +1,8 @@
 steal('jquery/controller/view', 
 	  'jquery/view/ejs', 
 	  'jquery/dom/form_params',
-	   'mxui/util/keycode',
-	   './create.css')
+	  'jquery/event/key',
+	  './create.css')
 	.then(function($){
 
 /**
@@ -29,7 +29,7 @@ $.Controller('Jupiter.Create',
 		this.element.hide();
 	},
 	"{insertInto} form keyup": function(el, ev){
-		if($.keycode(ev, "enter")){ // user hit enter
+		if(ev.key() == "/r"){ // user hit enter
 			this.options.insertInto.find("form").submit();
 		}
 	},
