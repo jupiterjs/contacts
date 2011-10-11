@@ -1,5 +1,4 @@
 {
   "mxui" : "https://github.com/jupiterjs/mxui",
-  "jupiter": "https://github.com/jupiterjs/contacts/tree/master/jupiter/",
-  "contacts.html": "https://github.com/jupiterjs/contacts/tree/master/contacts.html"
+  "jupiter": "https://github.com/jupiterjs/contacts/tree/master/jupiter/"
 }

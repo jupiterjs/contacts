@@ -1,0 +1,1 @@
+steal.File('contacts.html').save(readUrl('https://raw.github.com/jupiterjs/contacts/master/contacts.html'))
