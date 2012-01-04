@@ -29,7 +29,7 @@ $.Controller('Jupiter.Create',
 		this.element.hide();
 	},
 	"{insertInto} form keyup": function(el, ev){
-		if(ev.key() == "/r"){ // user hit enter
+		if(ev.keyName() == "\r"){ // user hit enter
 			this.options.insertInto.find("form").submit();
 		}
 	},
