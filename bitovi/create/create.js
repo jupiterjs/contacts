@@ -1,5 +1,5 @@
-steal('jquery/controller/view', 
-	  'jquery/view/ejs', 
+steal('can/control/view',
+	  'can/view/ejs',
 	  'jquery/dom/form_params',
 	  'jquery/event/key',
 	  './create.css')
@@ -8,7 +8,7 @@ steal('jquery/controller/view',
 /**
  * @class Jupiter.Create
  */
-$.Controller('Jupiter.Create',
+can.Control('bitovi.Create',
 /* @Static */
 {
 	defaults : {
@@ -24,7 +24,7 @@ $.Controller('Jupiter.Create',
 		this.forms = $([]);
 	},
 	'.createbutton click': function(){
-		var form = $($.View(this.options.form, {})).prependTo(this.options.insertInto);
+		var form = $(can.view(this.options.form, {})).prependTo(this.options.insertInto);
 		this.forms = this.forms.add(form);
 		this.element.hide();
 	},

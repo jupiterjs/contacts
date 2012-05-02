@@ -1,13 +1,10 @@
-steal('mxui/data/grid', 
-	  "jupiter/create", 
-	   "jupiter/style",
+steal('canui/data/grid',
+	  "bitovi/create",
+	   "bitovi/style",
 	   "./grid.css")
 	.then(function($){
 
-/**
- * @class Clui.Grid
- */
-$.Controller('Jupiter.ScrollableGrid',
+can.Control('bitovi.ScrollableGrid',
 /* @Static */
 {
 	defaults : {
@@ -23,7 +20,7 @@ $.Controller('Jupiter.ScrollableGrid',
 		this.element.append(this.view())
 		var gridOptions = {};
 		$.extend(gridOptions, this.options, {newPageClears: false});
-		this.find(".cluigrid").mxui_data_grid(gridOptions);
+		new can.ui.data.Grid(this.element.find(".cluigrid"), gridOptions);
 		this.find(".create").jupiter_create({
 			model: this.options.model,
 			insertInto: this.find("tbody"),

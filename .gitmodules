@@ -1,6 +1,3 @@
-[submodule "jquery"]
-	path = jquery
-	url = https://github.com/jupiterjs/jquerymx.git
 [submodule "funcunit"]
 	path = funcunit
 	url = https://github.com/jupiterjs/funcunit
@@ -10,6 +7,12 @@
 [submodule "steal"]
 	path = steal
 	url = https://github.com/jupiterjs/steal.git
-[submodule "mxui"]
-	path = mxui
-	url = https://github.com/jupiterjs/mxui.git
+[submodule "canui"]
+	path = canui
+	url = git@github.com:jupiterjs/canui.git
+[submodule "can"]
+	path = can
+	url = git@github.com:jupiterjs/canjs.git
+[submodule "jquery"]
+	path = jquery
+	url = git@github.com:jupiterjs/jquerypp.git

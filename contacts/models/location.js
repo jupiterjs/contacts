@@ -1,6 +1,5 @@
-steal("jquery/model/list")
+steal("can/model")
 	.then(function(){
-		$.Model('Contacts.Models.Location', {
-			listType : $.Model.List
+		can.Model('Contacts.Models.Location', {
 		}, {})
 	})

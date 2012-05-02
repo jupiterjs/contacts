@@ -1,53 +1,54 @@
-steal('jupiter/scrollable_grid',
-	  'jquery/dom/fixture', 
-	  'jupiter/style', 
-	  'mxui/data/list',
-	  './contacts.css',
-	  './models/location.js', 
-	  './models/contact.js', 
-	  './models/company.js', 
-	  './models/category.js')
+steal('can/control',
+	'bitovi/scrollable_grid',
+	'bitovi/style',
+	'can/util/fixture',
+	'canui/data/list',
+	'./contacts.css',
+	'./models/location.js',
+	'./models/contact.js',
+	'./models/company.js',
+	'./models/category.js')
 	.then(function(){
-		$.Controller("Contacts.Controller", {
+		can.Controller("Contacts.Controller", {
 			init: function(){
-				this.params = new Mxui.Data();
-				$("#category .list_wrapper").mxui_data_list({
+				this.params = new can.ui.Data();
+				new can.ui.data.List("#category .list_wrapper", {
 					model : Contacts.Models.Category,
 					show : "//contacts/views/categoryList",
 					create: "//contacts/views/categoryCreate"
 				})
 				
-				$("#location .list_wrapper").mxui_data_list({
+				new can.ui.data.List("#location .list_wrapper", {
 					model : Contacts.Models.Location,
 					show : "//contacts/views/categoryList",
 					create: "//contacts/views/categoryCreate"
 				})
 		
-				$("#company .list_wrapper").mxui_data_list({
+				new can.ui.data.List("#company .list_wrapper", {
 					model : Contacts.Models.Company,
 					show : "//contacts/views/companyList",
 					create: "//contacts/views/companyCreate"
 				})
-				
-				$("#category .create").jupiter_create({
+
+				new bitovi.Create("#category .create", {
 					model: Contacts.Models.Category,
 					form: "//contacts/views/categoryCreate",
 					insertInto: $("#category .list_wrapper")
 				})
-				
-				$("#company .create").jupiter_create({
+
+				new bitovi.Create("#company .create", {
 					model: Contacts.Models.Company,
 					form: "//contacts/views/companyCreate",
 					insertInto: $("#company .list_wrapper")
 				})
-				
-				$("#location .create").jupiter_create({
+
+				new bitovi.Create("#location .create", {
 					model: Contacts.Models.Location,
 					form: "//contacts/views/categoryCreate",
 					insertInto: $("#location .list_wrapper")
 				})
 		
-				$("#contacts").jupiter_scrollable_grid({
+				new bitovi.ScrollableGrid("#contacts", {
 					model : Contacts.Models.Contact,
 					params : this.params,
 					columns: {
@@ -59,7 +60,7 @@ steal('jupiter/scrollable_grid',
 					row : "//contacts/views/contactRow",
 					create: "//contacts/views/contactCreate"
 				})
-				.find(".wrapper").mxui_layout_fill()
+				$('#contacts').find(".wrapper").can_ui_layout_fill()
 				
 				$("h3").style$().header()
 				$(".lists > div").style$().box()
