@@ -28,13 +28,15 @@ can.Control('bitovi.Create',
 		this.forms = this.forms.add(form);
 		this.element.hide();
 	},
+
 	"{insertInto} form keyup": function(el, ev){
 		if(ev.keyName() == "\r"){ // user hit enter
 			this.options.insertInto.find("form").submit();
 		}
 	},
+
 	"{insertInto} form submit": function(el, ev){
-		ev.preventDefault()
+		ev.preventDefault();
 		var params = el.formParams();
 		var item = new this.options.model(params);
 		item.save();

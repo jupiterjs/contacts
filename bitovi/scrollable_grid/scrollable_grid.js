@@ -21,13 +21,13 @@ can.Control('bitovi.ScrollableGrid',
 		var gridOptions = {};
 		$.extend(gridOptions, this.options, {newPageClears: false});
 		new can.ui.data.Grid(this.element.find(".cluigrid"), gridOptions);
-		this.find(".create").jupiter_create({
+		new bitovi.Create(this.element.find(".create"), {
 			model: this.options.model,
-			insertInto: this.find("tbody"),
+			insertInto: this.element.find("tbody"),
 			form: this.options.create
 		})
 		this.element.addClass('ui-widget ui-widget-content ui-corner-all')
-		this.bind(this.find(".scrollBody")[0], "scroll", "gridscroll")
+		this.on(this.element.find(".scrollBody")[0], "scroll", "gridscroll")
 	},
 	"{params} updated.attr" : function(params, ev, attr, val){
 		if(attr == "count") {

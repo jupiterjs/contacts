@@ -93,13 +93,13 @@ h3{
     right: 8px;
 	width:100%:
 }
-.mxui_data_order .ui-corner-left
+.can_ui_data_order .ui-corner-left
 {
 	border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 	border-left:none;
 }
-.mxui_data_order .ui-corner-right
+.can_ui_data_order .ui-corner-right
 {
 	border-top-right-radius: 0;
     border-bottom-right-radius: 0;
