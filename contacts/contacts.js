@@ -15,19 +15,22 @@ steal('can/util', 'can/control',
 				new can.ui.data.List("#category .list_wrapper", {
 					model : Contacts.Models.Category,
 					show : "//contacts/views/categoryList.ejs",
-					create: "//contacts/views/categoryCreate.ejs"
+					create: "//contacts/views/categoryCreate.ejs",
+					callback : this.proxy('updateList', Contacts.Models.Category)
 				})
 
 				new can.ui.data.List("#location .list_wrapper", {
 					model : Contacts.Models.Location,
 					show : "//contacts/views/categoryList",
-					create: "//contacts/views/categoryCreate"
+					create: "//contacts/views/categoryCreate",
+					callback : this.proxy('updateList', Contacts.Models.Location)
 				})
 
 				new can.ui.data.List("#company .list_wrapper", {
 					model : Contacts.Models.Company,
 					show : "//contacts/views/companyList",
-					create: "//contacts/views/companyCreate"
+					create: "//contacts/views/companyCreate",
+					callback : this.proxy('updateList', Contacts.Models.Company)
 				})
 
 				new bitovi.Create("#category .create", {
@@ -64,6 +67,10 @@ steal('can/util', 'can/control',
 
 				$("h3").style$().header()
 				$(".lists > div").style$().box()
+			},
+
+			updateList : function(model, items) {
+				model.list = items;
 			},
 
 			"#category .list_wrapper activate": function(el, ev, item){

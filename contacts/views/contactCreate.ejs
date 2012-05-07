@@ -4,19 +4,22 @@
 			<input type='text' name='first' value="First" />
 			<input type='text' name='last' value="Last" />
 			<select name='categoryId'>
-				<%Contacts.Models.Category.list.each(function(i, item){ %>
+				<% for(var i = 0; i < Contacts.Models.Category.list.length; i++) { %>
+				<% var item = Contacts.Models.Category.list[i]; %>
 				<option value='<%=item.id%>'><%=item.name%></option>
-				<%})%>
+				<% } %>
 			</select>
 			<select name='companyId'>
-				<%Contacts.Models.Company.list.each(function(i, item){ %>
+				<% for(var i = 0; i < Contacts.Models.Company.list.length; i++) { %>
+				<% var item = Contacts.Models.Company.list[i]; %>
 				<option value='<%=item.id%>'><%=item.name%></option>
-				<%})%>
+				<% } %>
 			</select>
 			<select name='locationId'>
-				<%Contacts.Models.Location.list.each(function(i, item){ %>
+				<% for(var i = 0; i < Contacts.Models.Location.list.length; i++) { %>
+				<% var item = Contacts.Models.Location.list[i]; %>
 				<option value='<%=item.id%>'><%=item.name%></option>
-				<%})%>
+				<% } %>
 			</select>
 		</form>
 	</td>
